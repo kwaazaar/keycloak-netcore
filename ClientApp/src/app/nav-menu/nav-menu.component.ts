@@ -16,7 +16,13 @@ export class NavMenuComponent {
 
   get givenName() {
      const claims = this.oauthService.getIdentityClaims() as any;
-     if (!claims) { return null; }
+     if (!claims) {
+        console.log('no claims found');
+       return null;
+     }
+
+     console.log('claims found!', claims);
+
      return claims.given_name;
   }
 

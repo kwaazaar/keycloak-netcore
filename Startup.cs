@@ -34,8 +34,10 @@ namespace demo_app
             {
                 o.Authority = Configuration["Jwt:Authority"];
                 o.Audience = Configuration["Jwt:Audience"];
+                o.RequireHttpsMetadata = false; // Only for testing purposes
                 o.Events = new JwtBearerEvents()
                 {
+                    /*
                     OnAuthenticationFailed = c =>
                     {
                         c.NoResult();
@@ -48,6 +50,7 @@ namespace demo_app
                         }
                         return c.Response.WriteAsync("An error occured processing your authentication.");
                     }
+                    */
                 };
             });
 
